@@ -1,21 +1,21 @@
 class Dotsnapshot < Formula
   desc "A CLI utility to create snapshots of dotfiles and configuration"
   homepage "https://github.com/tomerlichtash/dotsnapshot"
-  version "1.4.2"
+  version "1.2.0"
   
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/tomerlichtash/dotsnapshot/releases/download/v1.4.2/dotsnapshot-macos-arm64.tar.gz"
-      sha256 "c880466b2cad2af96f452c57fefa8e5f60936dd21e683f9bb0db62887e134c0b"
+      url "https://github.com/tomerlichtash/dotsnapshot/releases/download/v1.2.0/dotsnapshot-macos-arm64.tar.gz"
+      sha256 "2a31019797dfe9bb6399b80c8c05109205cb4d4f51979d2052b90f967c42edce"
     else
-      url "https://github.com/tomerlichtash/dotsnapshot/releases/download/v1.4.2/dotsnapshot-macos-x86_64.tar.gz"
-      sha256 "313adfb48ffea49a7e94bb82a254b43fc5e1a95d27380b23f1b2f16adfce85ad"
+      url "https://github.com/tomerlichtash/dotsnapshot/releases/download/v1.2.0/dotsnapshot-macos-x86_64.tar.gz"
+      sha256 "426911e6bd0b1bb8f1cdb0ded2948cae12d500df3dd11ee61d6342f640f41dde"
     end
   end
 
   on_linux do
-    url "https://github.com/tomerlichtash/dotsnapshot/releases/download/v1.4.2/dotsnapshot-linux-x86_64.tar.gz"
-    sha256 "75f62591596a8950b4e7fa5beb5243c1ac0a89199969d2d2283e5673b6f8c846"
+    url "https://github.com/tomerlichtash/dotsnapshot/releases/download/v1.2.0/dotsnapshot-linux-x86_64.tar.gz"
+    sha256 "70dc8b5a890587e727190d3efca93ed27f5b9bb6ff2ea9858e4b057c8efaa0e3"
   end
 
   depends_on "rust" => :build
@@ -33,11 +33,11 @@ class Dotsnapshot < Formula
 
   test do
     # Test version command
-    assert_match "dotsnapshot 1.4.2", shell_output("#{bin}/dotsnapshot --version")
+    assert_match "dotsnapshot 1.2.0", shell_output("#{bin}/dotsnapshot --version")
     
     # Test info command
     output = shell_output("#{bin}/dotsnapshot --info")
-    assert_match "dotsnapshot v1.4.2", output
+    assert_match "dotsnapshot v1.2.0", output
     assert_match "A CLI utility to create snapshots of dotfiles and configuration", output
     
     # Test list command
